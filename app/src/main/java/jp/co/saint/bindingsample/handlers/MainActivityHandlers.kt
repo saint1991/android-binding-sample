@@ -14,7 +14,7 @@ class MainActivityHandlers {
 
     fun onClickDataContent(view: View) {
         val activity = view.context as MainActivity
-        val userInfo: BindableUser = activity?.getUser()
+        val userInfo: BindableUser = activity?.user
         val message: String = "Hello " + userInfo?.name + ", " + userInfo?.age + " years old"
         Toast.makeText(view.context, message, Toast.LENGTH_LONG).show()
     }

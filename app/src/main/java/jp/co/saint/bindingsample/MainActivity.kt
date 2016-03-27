@@ -10,7 +10,9 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var user: BindableUser = BindableUser("Seiya", "Mizuno", 24)
+    private var _user: BindableUser = BindableUser("Seiya", "Mizuno", 24)
+    val user: BindableUser
+    get() = _user
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +20,6 @@ class MainActivity : AppCompatActivity() {
         binding.setUser(user)
         binding.setMyHandler(MainActivityHandlers())
     }
-
-    fun getUser() = user
 
     fun increaseAge() = user.increaseAge()
     fun decreaseAge() = user.decreaseAge()
