@@ -2,8 +2,6 @@ package jp.co.saint.bindingsample.models
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
-import android.databinding.ObservableField
-import android.databinding.ObservableInt
 import jp.co.saint.bindingsample.BR
 
 /**
@@ -11,25 +9,32 @@ import jp.co.saint.bindingsample.BR
  */
 class BindableUser(firstName: String, lastName: String, age: Int): BaseObservable() {
 
-    private var name: String = firstName + " " + lastName
+    private var _name: String = firstName + " " + lastName
+    var name: String
+    @Bindable get() = _name
     set (value) {
-        name = value
+        _name = value
         notifyPropertyChanged(BR.name)
     }
-    @Bindable
-    fun getName(): String = name
 
-    private var age: Int = age
+    private var _age: Int = age
+    var age: String
+    @Bindable get() = _age.toString()
     set (value) {
-        age = value
+        this._age = Integer.parseInt(value)
         notifyPropertyChanged(BR.age)
     }
-    @Bindable
-    fun getAge() = age
+
+    fun increaseAge() {
+        age = (_age + 1).toString()
+    }
+    fun decreaseAge() {
+        age = (_age - 1).toString()
+    }
 
     // Primary Constructor
     init {
         this.name = firstName + " " + lastName
-        this.age = age
+        this.age = age.toString()
     }
 }

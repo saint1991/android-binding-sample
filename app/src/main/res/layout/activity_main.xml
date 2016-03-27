@@ -5,6 +5,7 @@
 
     <data>
         <variable name="user" type="jp.co.saint.bindingsample.models.BindableUser"/>
+        <variable name="myHandler" type="jp.co.saint.bindingsample.handlers.MainActivityHandlers"/>
     </data>
 
     <RelativeLayout
@@ -31,6 +32,7 @@
             android:layout_below="@id/NameLabel"
             android:text="@{user.name}"/>
 
+
         <TextView
             android:id="@+id/AgeLabel"
             android:layout_width="150dp"
@@ -55,17 +57,37 @@
             android:background="@color/colorPrimaryDark"
             android:text="Data Content"
             android:textColor="#FFF"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:onClick="@{myHandler.onClickDataContent}"/>
+
 
         <Button
-            android:layout_width="150dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/AgeBox"
             android:layout_alignLeft="@id/AgeBox"
             android:background="@color/colorPrimaryDark"
-            android:text="Another User"
+            android:text="+"
+            android:textSize="30sp"
             android:textColor="#FFF"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:onClick="@{myHandler.onClickPlus}"/>
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/AgeBox"
+            android:layout_alignRight="@id/AgeBox"
+            android:background="@color/colorPrimaryDark"
+            android:text="-"
+            android:textSize="30sp"
+            android:textColor="#FFF"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:onClick="@{myHandler.onClickMinus}"/>
+
     </RelativeLayout>
 
 </layout>
